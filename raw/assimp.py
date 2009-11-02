@@ -5,13 +5,13 @@
 from _ctypes_assimp import *
 from aiTypes import *
 from aiConfig import *
+from aiScene import *
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Code generated from:
 #~   "inc/assimp.h"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-aiScene = c_void_p # Structure with empty _fields_
 aiFileIO = c_void_p # Structure with empty _fields_
 # typedef aiLogStreamCallback
 aiLogStreamCallback = CFUNCTYPE(None, c_char_p, c_char_p)

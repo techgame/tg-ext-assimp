@@ -84,8 +84,16 @@ def main():
         aiFile = ciFilesByName[incFn]
         aiTypes.importAll(aiFile)
 
+    aiScene = ciFilesByName['aiScene.h']
+
+    for incFn in ['aiTexture.h', 'aiMesh.h', 'aiLight.h', 'aiCamera.h', 'aiMaterial.h', 'aiAnim.h']:
+        aiFile = ciFilesByName[incFn]
+        aiFile.importAll(aiTypes)
+        aiScene.importAll(aiFile)
+    ciFilesByName['aiAnim.h'].importAll(ciFilesByName['aiQuaternion.h'])
+
     assimp = ciFilesByName['assimp.h']
-    assimp.importAll(aiTypes, aiConfig)
+    assimp.importAll(aiTypes, aiConfig, aiScene)
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # write output files
