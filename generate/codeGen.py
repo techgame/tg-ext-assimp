@@ -42,21 +42,23 @@ class FilterVisitor(AtomFilterVisitor):
     def onEnumeration(self, item, *args, **kw):
         if item.name.startswith('ai'):
             self.select(item)
-            print 'onEnumeration:', item
 
     def onUnion(self, item, *args, **kw):
         if item.name.startswith('ai'):
             self.select(item)
-            print 'onUnion:', item
 
     def onStruct(self, item, *args, **kw): 
         if item.name.startswith('ai'):
             self.select(item)
 
-    def onClass(self, item, *args, **kw):
-        if item.name.startswith('ai'):
+    def onPPDefine(self, item, *args, **kw):
+        if not item.name.startswith('AI'):
+            return
+        if item.name.endswith("INC"):
+            return
+
+        if item.name.startswith('AI_CONFIG'):
             self.select(item)
-            print 'onClass:', item
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Main 
@@ -75,6 +77,7 @@ def main():
     for ciFile in ciFilesByName.itervalues():
         ciFile.importAll('_ctypes_assimp')
 
+    aiConfig = ciFilesByName['aiConfig.h']
     aiTypes = ciFilesByName['aiTypes.h']
 
     for incFn in ['aiMatrix3x3.h', 'aiMatrix4x4.h', 'aiVector3D.h', 'aiVector2D.h', 'aiQuaternion.h']:
@@ -82,7 +85,7 @@ def main():
         aiTypes.importAll(aiFile)
 
     assimp = ciFilesByName['assimp.h']
-    assimp.importAll(aiTypes)
+    assimp.importAll(aiTypes, aiConfig)
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # write output files

@@ -4,6 +4,7 @@
 
 from _ctypes_assimp import *
 from aiTypes import *
+from aiConfig import *
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Code generated from:
