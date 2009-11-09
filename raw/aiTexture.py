@@ -24,7 +24,7 @@ class aiTexture(Structure):
     _fields_ = [
         ("mWidth", c_uint),
         ("mHeight", c_uint),
-        ("achFormatHint", (32*c_char)),
+        ("achFormatHint", (4*c_char)),
         ("pcData", POINTER(aiTexel)),
         ]
 

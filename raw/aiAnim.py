@@ -37,26 +37,17 @@ elem_type = aiQuaternion
 
 #~ line: 147, skipped: 26 ~~~~~~
 
-class aiAnimBehaviour(c_int):
+class aiAnimBehaviour(c_enum):
     '''enum aiAnimBehaviour''' 
-    aiAnimBehaviour_DEFAULT = 0
-    aiAnimBehaviour_CONSTANT = 1
-    aiAnimBehaviour_LINEAR = 2
-    aiAnimBehaviour_REPEAT = 3
-    _aiAnimBehaviour_Force32Bit = -1879048193
-    lookup = {
-        0: "aiAnimBehaviour_DEFAULT",
-        1: "aiAnimBehaviour_CONSTANT",
-        2: "aiAnimBehaviour_LINEAR",
-        3: "aiAnimBehaviour_REPEAT",
-        -1879048193: "_aiAnimBehaviour_Force32Bit",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiAnimBehaviour_DEFAULT=0,
+        aiAnimBehaviour_CONSTANT=1,
+        aiAnimBehaviour_LINEAR=2,
+        aiAnimBehaviour_REPEAT=3,
+        _aiAnimBehaviour_Force32Bit=-1879048193,
+        )
+aiAnimBehaviour._nsUpdate_(locals())
+
 
 #~ line: 186, skipped: 39 ~~~~~~
 

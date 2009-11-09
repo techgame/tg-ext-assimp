@@ -57,40 +57,24 @@ AI_CONFIG_PP_ICL_PTCACHE_SIZE = "PP_ICL_PTCACHE_SIZE"
 
 #~ line: 259, skipped: 8 ~~~~~~
 
-class aiComponent(c_int):
+class aiComponent(c_enum):
     '''enum aiComponent''' 
-    aiComponent_NORMALS = 2
-    aiComponent_TANGENTS_AND_BITANGENTS = 4
-    aiComponent_COLORS = 8
-    aiComponent_TEXCOORDS = 16
-    aiComponent_BONEWEIGHTS = 32
-    aiComponent_ANIMATIONS = 64
-    aiComponent_TEXTURES = 128
-    aiComponent_LIGHTS = 256
-    aiComponent_CAMERAS = 512
-    aiComponent_MESHES = 1024
-    aiComponent_MATERIALS = 2048
-    _aiComponent_Force32Bit = -1610612737
-    lookup = {
-        2: "aiComponent_NORMALS",
-        4: "aiComponent_TANGENTS_AND_BITANGENTS",
-        8: "aiComponent_COLORS",
-        16: "aiComponent_TEXCOORDS",
-        32: "aiComponent_BONEWEIGHTS",
-        64: "aiComponent_ANIMATIONS",
-        128: "aiComponent_TEXTURES",
-        256: "aiComponent_LIGHTS",
-        512: "aiComponent_CAMERAS",
-        1024: "aiComponent_MESHES",
-        2048: "aiComponent_MATERIALS",
-        -1610612737: "_aiComponent_Force32Bit",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiComponent_NORMALS=2,
+        aiComponent_TANGENTS_AND_BITANGENTS=4,
+        aiComponent_COLORS=8,
+        aiComponent_TEXCOORDS=16,
+        aiComponent_BONEWEIGHTS=32,
+        aiComponent_ANIMATIONS=64,
+        aiComponent_TEXTURES=128,
+        aiComponent_LIGHTS=256,
+        aiComponent_CAMERAS=512,
+        aiComponent_MESHES=1024,
+        aiComponent_MATERIALS=2048,
+        _aiComponent_Force32Bit=-1610612737,
+        )
+aiComponent._nsUpdate_(locals())
+
 
 #~ line: 329, skipped: 70 ~~~~~~
 

@@ -54,73 +54,48 @@ class aiColor4D(Structure):
 class aiString(Structure):
     _fields_ = [
         ("length", size_t),
-        ("data", (8192*c_char)),
+        ("data", (1024*c_char)),
         ]
 
 #~ line: 394, skipped: 114 ~~~~~~
 
-class aiReturn(c_int):
+class aiReturn(c_enum):
     '''enum aiReturn''' 
-    aiReturn_SUCCESS = 0
-    aiReturn_FAILURE = -1
-    aiReturn_OUTOFMEMORY = -3
-    _AI_ENFORCE_ENUM_SIZE = 2147483647
-    lookup = {
-        0: "aiReturn_SUCCESS",
-        -1: "aiReturn_FAILURE",
-        -3: "aiReturn_OUTOFMEMORY",
-        2147483647: "_AI_ENFORCE_ENUM_SIZE",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiReturn_SUCCESS=0,
+        aiReturn_FAILURE=-1,
+        aiReturn_OUTOFMEMORY=-3,
+        _AI_ENFORCE_ENUM_SIZE=2147483647,
+        )
+aiReturn._nsUpdate_(locals())
+
 
 #~ line: 422, skipped: 28 ~~~~~~
 
-class aiOrigin(c_int):
+class aiOrigin(c_enum):
     '''enum aiOrigin''' 
-    aiOrigin_SET = 0
-    aiOrigin_CUR = 1
-    aiOrigin_END = 2
-    _AI_ORIGIN_ENFORCE_ENUM_SIZE = 2147483647
-    lookup = {
-        0: "aiOrigin_SET",
-        1: "aiOrigin_CUR",
-        2: "aiOrigin_END",
-        2147483647: "_AI_ORIGIN_ENFORCE_ENUM_SIZE",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiOrigin_SET=0,
+        aiOrigin_CUR=1,
+        aiOrigin_END=2,
+        _AI_ORIGIN_ENFORCE_ENUM_SIZE=2147483647,
+        )
+aiOrigin._nsUpdate_(locals())
+
 
 #~ line: 445, skipped: 23 ~~~~~~
 
-class aiDefaultLogStream(c_int):
+class aiDefaultLogStream(c_enum):
     '''enum aiDefaultLogStream''' 
-    aiDefaultLogStream_FILE = 1
-    aiDefaultLogStream_STDOUT = 2
-    aiDefaultLogStream_STDERR = 4
-    aiDefaultLogStream_DEBUGGER = 8
-    _AI_DLS_ENFORCE_ENUM_SIZE = 2147483647
-    lookup = {
-        1: "aiDefaultLogStream_FILE",
-        2: "aiDefaultLogStream_STDOUT",
-        4: "aiDefaultLogStream_STDERR",
-        8: "aiDefaultLogStream_DEBUGGER",
-        2147483647: "_AI_DLS_ENFORCE_ENUM_SIZE",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiDefaultLogStream_FILE=1,
+        aiDefaultLogStream_STDOUT=2,
+        aiDefaultLogStream_STDERR=4,
+        aiDefaultLogStream_DEBUGGER=8,
+        _AI_DLS_ENFORCE_ENUM_SIZE=2147483647,
+        )
+aiDefaultLogStream._nsUpdate_(locals())
+
 
 #~ line: 479, skipped: 34 ~~~~~~
 

@@ -52,12 +52,12 @@ class FilterVisitor(AtomFilterVisitor):
             self.select(item)
 
     def onPPDefine(self, item, *args, **kw):
-        if not item.name.startswith('AI'):
-            return
         if item.name.endswith("INC"):
             return
 
         if item.name.startswith('AI_CONFIG'):
+            self.select(item)
+        elif item.name.startswith('ai'):
             self.select(item)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -10,26 +10,17 @@ from aiTypes import *
 #~   "inc/aiLight.h"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-class aiLightSourceType(c_int):
+class aiLightSourceType(c_enum):
     '''enum aiLightSourceType''' 
-    aiLightSource_UNDEFINED = 0
-    aiLightSource_DIRECTIONAL = 1
-    aiLightSource_POINT = 2
-    aiLightSource_SPOT = 3
-    _aiLightSource_Force32Bit = -1610612737
-    lookup = {
-        0: "aiLightSource_UNDEFINED",
-        1: "aiLightSource_DIRECTIONAL",
-        2: "aiLightSource_POINT",
-        3: "aiLightSource_SPOT",
-        -1610612737: "_aiLightSource_Force32Bit",
-        }
-    rlookup = dict([(v,k) for k,v in lookup.items()])
-    
-    def __repr__(self): return str(self)
-    def __str__(self): 
-        return self.lookup.get(self.value) or str(self.value)
-    
+    values = dict(
+        aiLightSource_UNDEFINED=0,
+        aiLightSource_DIRECTIONAL=1,
+        aiLightSource_POINT=2,
+        aiLightSource_SPOT=3,
+        _aiLightSource_Force32Bit=-1610612737,
+        )
+aiLightSourceType._nsUpdate_(locals())
+
 
 #~ line: 99, skipped: 41 ~~~~~~
 
